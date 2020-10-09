@@ -22,19 +22,19 @@ public class PlayerControler : MonoBehaviour
         transform.Translate(Vector3.right * Time.deltaTime * horizontalInput * speed);
         
         //constrains leftward movement x @ -10
-        if(transform.position.x < -xRange);
-        { 
+        if(transform.position.x < -xRange)
+        {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
             
         }
         
         //constrains rightward movement x @ 10
-        if(transform.position.x = xRange);
+        if(transform.position.x = xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
         
-        if(Input.GetKeyDown(KeyCode.Space));
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(foodProjectile, transform.position, foodProjectile.transform.rotation);
         }
