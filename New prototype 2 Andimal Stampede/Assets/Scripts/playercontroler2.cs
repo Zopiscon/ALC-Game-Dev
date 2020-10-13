@@ -6,7 +6,7 @@ public class playercontroler2 : MonoBehaviour
 {
     public float horizontalInput;
     public float speed = 10f;
-    public float xRange = 20f;
+    public float xRange = 23f;
     public GameObject foodMissile;
     // Start is called before the first frame update
     void Start()
@@ -18,16 +18,16 @@ public class playercontroler2 : MonoBehaviour
     void Update()
     {
         // alows for left and right movement for character
-        horizontalInput = Input.GetAxis("horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * horizontalInput * speed);
         // limits x bounds for rightward movement
-        if(transform.position.x < xRange)
+        if(transform.position.x > xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         
         }
         // limits x bounds for leftward movement
-        if(transform.position.x > -xRange)
+        if(transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
