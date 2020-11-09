@@ -9,6 +9,7 @@ public class Playercontoller : MonoBehaviour
     public float gravityMod;
     
     public bool isOnGround = true;
+    public bool gameOver = false;
     
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class Playercontoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
@@ -29,6 +30,14 @@ public class Playercontoller : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        isOnGround = true;
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+        gameOver = true;
+        Debug.Log("Game Over!");
+        }
     }
 }

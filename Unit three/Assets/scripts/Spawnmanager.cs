@@ -8,21 +8,20 @@ public class Spawnmanager : MonoBehaviour
     private Vector3 spawnPos = new Vector3 (30, 0, 0);
     private float startDelay = 2;
     private float repeatDelay = 2;
+    private Playercontoller pcs;
     
     // Start is called before the first frame update
     void Start()
     {
        InvokeRepeating("SpawnObstacle", startDelay, repeatDelay);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       pcs = GameObject.Find("Player").GetComponent<Playercontoller>();
     }
     
     void SpawnOsticle()
-    {
-         Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+    {   
+        if(pcs.gameOver == false)
+        {
+            Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+        }
     }
 }
