@@ -20,7 +20,7 @@ public class Repeatbackground : MonoBehaviour
         // if the background is less than -50 on x reset position
         if(transform.position.x < startPos.x - repeatWidth)
         {
-            transform.position = startPos;
+            transform.position = startPos; 
         }
     }
 }
