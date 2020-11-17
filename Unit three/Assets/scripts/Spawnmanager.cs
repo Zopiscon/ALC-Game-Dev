@@ -17,7 +17,7 @@ public class Spawnmanager : MonoBehaviour
        pcs = GameObject.Find("Player").GetComponent<Playercontoller>();
     }
     
-    void SpawnOsticle()
+    void SpawnObstacle()
     {   
         if(pcs.gameOver == false)
         {

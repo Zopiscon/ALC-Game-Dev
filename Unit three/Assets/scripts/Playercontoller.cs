@@ -12,6 +12,8 @@ public class Playercontoller : MonoBehaviour
     public bool gameOver = false;
     
     private Animator playerAnim;
+    public ParticleSystem explosion;
+    public ParticleSystem dirt;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class Playercontoller : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
             playerAnim.SetTrigger("Jump_trig");
+            dirt.Stop();
         }
     }
     
@@ -38,13 +41,16 @@ public class Playercontoller : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            dirt.Play();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
-        gameOver = true;
-        Debug.Log("Game Over!");
-        playerAnim.SetBool("Death_b",true);
-        playerAnim.SetInteger("DeathType_int",1);
+            gameOver = true;
+            Debug.Log("Game Over!");
+            playerAnim.SetBool("Death_b",true);
+            playerAnim.SetInteger("DeathType_int",1);
+            explosion.Play();
+            dirt.Stop();
         }
     }
 }
