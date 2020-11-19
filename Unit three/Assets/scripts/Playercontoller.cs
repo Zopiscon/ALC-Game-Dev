@@ -14,6 +14,10 @@ public class Playercontoller : MonoBehaviour
     private Animator playerAnim;
     public ParticleSystem explosion;
     public ParticleSystem dirt;
+    
+    private AudioSource playerAudio;
+    public AudioClip jumpSound;
+    public AudioClip crashSound;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,8 @@ public class Playercontoller : MonoBehaviour
         Physics.gravity *= gravityMod;
 
         playerAnim = GetComponent<Animator>(); 
+
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,6 +39,7 @@ public class Playercontoller : MonoBehaviour
             isOnGround = false;
             playerAnim.SetTrigger("Jump_trig");
             dirt.Stop();
+            playerAudio.PlayOneShot(jumpSound, 5.0f);
         }
     }
     
@@ -51,6 +58,7 @@ public class Playercontoller : MonoBehaviour
             playerAnim.SetInteger("DeathType_int",1);
             explosion.Play();
             dirt.Stop();
+            playerAudio.PlayOneShot(crashSound, 8.0f);
         }
     }
 }
