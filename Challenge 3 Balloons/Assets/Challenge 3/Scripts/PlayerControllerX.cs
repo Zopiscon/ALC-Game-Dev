@@ -16,6 +16,7 @@ public class PlayerControllerX : MonoBehaviour
     private AudioSource playerAudio;
     public AudioClip moneySound;
     public AudioClip explodeSound;
+    public AudioClip bounceSound;
 
     public float yRange = 7;
 
@@ -45,10 +46,11 @@ public class PlayerControllerX : MonoBehaviour
             transform.position = new Vector3 (transform.position.x, yRange, transform.position.z);
             playerRb.AddForce(Vector3.up * -2f, ForceMode.Impulse);
         }
-        if(transform.position.y < 2)
+        if(transform.position.y < 1)
         {
-            transform.position = new Vector3 (transform.position.x, 0, transform.position.z);
-            playerRb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+            transform.position = new Vector3 (transform.position.x, 1, transform.position.z);
+            playerRb.AddForce(Vector3.up * 7f, ForceMode.Impulse);
+            playerAudio.PlayOneShot(bounceSound, 1f);
         }
     }
 

@@ -6,7 +6,7 @@ public class Playercontoller : MonoBehaviour
 {
     private Rigidbody playerRb;
     public float jumpForce;
-    public float gravityMod;
+    public float gravityMod = 1.5f;
     
     public bool isOnGround = true;
     public bool gameOver = false;
