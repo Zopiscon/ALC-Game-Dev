@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         float forwardInput = Input.GetAxis("Vertical");
         playerRb.AddForce(focalPoint.transform.forward * forwardInput * speed);
-        powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5, 0);
+        powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
             hasPowerup = true;
             Destroy(other.gameObject);
             StartCoroutine(PowerupCountdownRoutine());
-            powerupIndicator. gameObject.SetActive(true);
+            powerupIndicator.gameObject.SetActive(true);
         }
         
     }
