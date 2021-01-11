@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private float smallzRange = -3f;
     private float smallxRange = -30f;
 
+    public GameObject fireBall;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,5 +59,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over");
         }
 
+    }
+    private void OnMouseDown()
+    {
+        Instantiate(fireBall, transform.position, fireBall.transform.rotation);
     }
 }
