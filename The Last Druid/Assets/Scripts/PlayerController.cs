@@ -27,10 +27,10 @@ public class PlayerController : MonoBehaviour
     {
         turnInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
-
+        
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up, turnSpeed * turnInput * Time.deltaTime);
-
+        // Bouderies for player
         if(transform.position.x > xRange)
         {
             transform.position = new Vector3 (xRange, transform.position.y, transform.position.z);
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3 (transform.position.x, transform.position.y, smallzRange);
         }
+        
 
     }
     private void OnCollisionEnter(Collision collision)
@@ -59,9 +60,5 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over");
         }
 
-    }
-    private void OnMouseDown()
-    {
-        Instantiate(fireBall, transform.position, fireBall.transform.rotation);
     }
 }
