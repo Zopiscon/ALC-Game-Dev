@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -53,11 +53,12 @@ public class PlayerController : MonoBehaviour
         
 
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Game Over");
+            Time.timeScale = 0f;
         }
 
     }

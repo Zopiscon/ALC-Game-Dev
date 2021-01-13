@@ -13,10 +13,11 @@ GameObject:
   - component: {fileID: 7505606948918387441}
   - component: {fileID: 7610232757505447321}
   - component: {fileID: 1686091146729483551}
-  - component: {fileID: 8961333284162028395}
+  - component: {fileID: 5518728839750736413}
+  - component: {fileID: 7739514024152054660}
   m_Layer: 0
   m_Name: FireBall
-  m_TagString: Untagged
+  m_TagString: FireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8961333284162028395
+--- !u!114 &5518728839750736413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,5 +124,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9a1732dd1669458bb7c3220d35b6ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointValue: 1
+  gms: {fileID: 0}
+--- !u!114 &7739514024152054660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912191543725348503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20dba0812265540d385eef3f0cbba7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
